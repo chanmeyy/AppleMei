@@ -1,44 +1,49 @@
 import React from "react";
 import Button from "../common/Button";
-import macbook from "../../assets/images/macbook.svg";
-import iphoneTriple from "../../assets/images/iphone-triple.svg";
-import ipad from "../../assets/images/ipad.svg";
 
+// Image URLs as string constants
 const IMAGES = {
-  macbook,
-  "iphone-triple": iphoneTriple,
-  ipad,
+  macbook: "https://www.apple.com/v/home/images/iphone-family/a/hero_iphone_family__be5jkzxszb1e_largetall_2x.jpg",
+  "iphone-triple": "https://www.apple.com/v/iphone-16-pro/a/images/overview/hero/iphone_16pro_hero__e5l2jlbjv3ye_largetall_2x.jpg",
+  ipad: "https://www.apple.com/v/ipad-air/a/images/overview/hero/ipad_air_hero__g3jqx1au52q2_largetall_2x.jpg",
 };
 
 /**
  * Renders a single full-bleed hero banner. Reusable across product lines.
  */
 function HeroBanner({ slide, bg }) {
-  const img = IMAGES[slide.image];
+  const imgUrl = IMAGES[slide.image];
   return (
     <section
-      className={`w-full flex flex-col items-center text-center pt-14 pb-6 px-4 ${bg}`}
+      className={`w-full relative overflow-hidden flex items-center justify-center ${bg}`}
     >
-      <span className="text-sm sm:text-base font-medium text-apple-gray-dark">
-        {slide.eyebrow}
-      </span>
-      <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold mt-1 mb-3 text-apple-dark text-balance max-w-xl">
-        {slide.title}
-      </h1>
-      <div className="flex items-center gap-6 mb-6">
-        {slide.links.map((link, i) => (
-          <Button key={i} variant="text" href={link.href}>
-            {link.label}
-          </Button>
-        ))}
-      </div>
-      <div className="w-full max-w-3xl text-apple-dark">
+      {/* Background Image - fills the entire card */}
+      <div className="absolute inset-0 w-full h-full">
         <img
-          src={img}
+          src={imgUrl}
           alt={slide.title}
-          className="w-full h-auto max-h-[320px] object-contain mx-auto"
+          className="w-full h-full object-cover"
           draggable="false"
         />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
+      
+      {/* Content - overlayed on top of image */}
+      <div className="relative z-10 flex flex-col items-center text-center py-16 px-4 md:py-24">
+        <span className="text-sm sm:text-base font-medium text-white/90">
+          {slide.eyebrow}
+        </span>
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-2 mb-4 text-white text-balance max-w-2xl">
+          {slide.title}
+        </h1>
+        <div className="flex items-center gap-4 md:gap-6 mb-6">
+          {slide.links.map((link, i) => (
+            <Button key={i} variant="text" href={link.href} className="text-white hover:text-white/80">
+              {link.label}
+            </Button>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -47,7 +52,7 @@ function HeroBanner({ slide, bg }) {
 export default function HeroSection({ slides }) {
   const bgCycle = ["bg-white", "bg-apple-gray", "bg-white"];
   return (
-    <div>
+    <div className="space-y-0">
       {slides.map((slide, i) => (
         <HeroBanner key={slide.id} slide={slide} bg={bgCycle[i % bgCycle.length]} />
       ))}
