@@ -1,0 +1,14 @@
+<svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(20,40) rotate(-8 90 160)">
+<rect x="0" y="0" width="180" height="320" rx="38" fill="none" stroke="currentColor" stroke-width="6"/>
+<rect x="14" y="16" width="152" height="288" rx="24" fill="currentColor" opacity="0.12"/>
+</g>
+<g transform="translate(150,10)">
+<rect x="0" y="0" width="180" height="320" rx="38" fill="none" stroke="currentColor" stroke-width="6"/>
+<rect x="14" y="16" width="152" height="288" rx="24" fill="currentColor" opacity="0.18"/>
+</g>
+<g transform="translate(280,40) rotate(8 90 160)">
+<rect x="0" y="0" width="180" height="320" rx="38" fill="none" stroke="currentColor" stroke-width="6"/>
+<rect x="14" y="16" width="152" height="288" rx="24" fill="currentColor" opacity="0.12"/>
+</g>
+</svg>
