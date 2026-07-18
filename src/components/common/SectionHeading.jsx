@@ -36,14 +36,12 @@
 
 import React from "react";
 
-export default function SectionHeading({ title, subtitle, dark = false }) {
+export default function SectionHeading({ title, subtitle, dark = false, align = "center", className = "" }) {
+  const alignClass = align === "left" ? "text-left items-start" : "text-center items-center";
+
   return (
-    <div className="text-center px-4">
-      <h2
-        className={`text-3xl md:text-5xl font-semibold tracking-tight ${
-          dark ? "text-white" : "text-[#1d1d1f]"
-        }`}
-      >
+    <div className={`flex flex-col ${alignClass} gap-2 px-4 ${className}`}>
+      <h2 className={`text-3xl md:text-5xl font-semibold tracking-tight ${dark ? "text-white" : "text-[#1d1d1f]"}`}>
         {title}
       </h2>
       {subtitle && (

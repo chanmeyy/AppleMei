@@ -181,7 +181,7 @@ export const gridProducts = [
     subtitle: "Get up to $195-$695 in credit when you trade in iPhone 15 or higher.",
     small: true,
     icon: "♻️",
-    links: [{ label: "Learn more", href: "#" }],
+    links: [{ label: "Get your estimate", href: "#" }],
   },
   {
     id: "apple-card",
@@ -190,7 +190,7 @@ export const gridProducts = [
     subtitle: "Get up to 3% Daily Cash back with every purchase.",
     small: true,
     icon: "💳",
-    links: [{ label: "Learn more", href: "#" }],
+    links: [{ label: "Learn more", href: "Apply now" }],
   },
 ];
 

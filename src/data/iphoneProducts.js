@@ -3,8 +3,9 @@ export const iphoneLineup = [
     id: "iphone-17-pro",
     title: "iPhone 17 Pro",
     tagline: "Amazing design. Pro cameras that shoot it all. A19 Pro chip.",
-    price: "From $999",
+   
     highlight: true,
+    image: "",
   },
   {
     id: "iphone-air",
