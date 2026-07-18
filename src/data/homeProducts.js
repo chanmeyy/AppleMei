@@ -195,5 +195,5 @@ export const gridProducts = [
 ];
 
 export const promoCards = [
- 
+
 ];
